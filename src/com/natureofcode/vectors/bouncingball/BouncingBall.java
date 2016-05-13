@@ -11,9 +11,15 @@ import java.awt.Graphics;
  */
 public class BouncingBall implements Animated {
 
-    private static final int WIDTH = 800, HEIGHT = 600;
+    private static final int WIDTH = 100, HEIGHT = 100;
 
-    float x = 100, y = 100, xspeed = 1, yspeed = 3.3f;
+    public float x = 100f, y = 100f, xspeed = 1f, yspeed = 3.3f, diameter;
+
+    public BouncingBall(float x, float y, float diameter) {
+        this.x = x;
+        this.y = y;
+        this.diameter = diameter;
+    }
 
     @Override
     public void draw(Graphics g) {
@@ -28,15 +34,16 @@ public class BouncingBall implements Animated {
 
         //check for bouncing
         if ((x > WIDTH) || (x < 0)) {
-            xspeed = xspeed * -1;
+            xspeed *= -1;
         }
-        if ((y > HEIGHT) || (y < 0)) {
-            yspeed = yspeed * -1;
+        if ((y > HEIGHT - this.diameter) || (y < 0)) {
+            yspeed *= -1;
         }
     }
 
     public static void main(String[] args) {
-        PanelAnimation p = new PanelAnimation(WIDTH, HEIGHT, 10);
+        PanelAnimation p = new PanelAnimation(WIDTH, HEIGHT, 1);
+        p.addAnimated(new BouncingBall(0, 0, 16));
         Fenetre f = new Fenetre(p);
         f.setVisible(true);
         p.start();

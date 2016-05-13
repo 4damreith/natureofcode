@@ -42,7 +42,6 @@ public class PanelAnimation extends JPanel {
     }
 
     public void compute() {
-        System.out.println("compute");
         for (Animated animated : listAnimated) {
             animated.compute();
         }
@@ -50,7 +49,6 @@ public class PanelAnimation extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        System.out.println("repaint");
         super.paintComponent(g);
         for (Animated animated : listAnimated) {
             animated.draw(g);
