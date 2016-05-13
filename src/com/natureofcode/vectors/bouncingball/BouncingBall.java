@@ -13,7 +13,7 @@ public class BouncingBall implements Animated {
 
     private static final int WIDTH = 100, HEIGHT = 100;
 
-    public float x = 100f, y = 100f, xspeed = 1f, yspeed = 3.3f, diameter;
+    public float x = 100f, y = 100f, xspeed = 1.5f, yspeed = 3.3f, diameter;
 
     public BouncingBall(float x, float y, float diameter) {
         this.x = x;
@@ -42,7 +42,7 @@ public class BouncingBall implements Animated {
     }
 
     public static void main(String[] args) {
-        PanelAnimation p = new PanelAnimation(WIDTH, HEIGHT, 1);
+        PanelAnimation p = new PanelAnimation(WIDTH, HEIGHT, 10);
         p.addAnimated(new BouncingBall(0, 0, 16));
         Fenetre f = new Fenetre(p);
         f.setVisible(true);

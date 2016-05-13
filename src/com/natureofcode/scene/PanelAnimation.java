@@ -56,7 +56,7 @@ public class PanelAnimation extends JPanel {
     }
 
     public void start() {
-        this.timer.scheduleAtFixedRate(timerTask, this.delay, 100);
+        this.timer.scheduleAtFixedRate(timerTask, 100, this.delay);
     }
 
     public void stop() {
